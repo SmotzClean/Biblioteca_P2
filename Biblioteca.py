@@ -49,9 +49,8 @@ class Biblioteca:
         else:
             print(f'O livro "{livro}" não existe no estoque')
 
-    # Leitores: Cadastro
     def Cadastrar_Leitor(self):
-        novo_leitor = Leitor([])  # ← Aqui estava o erro
+        novo_leitor = Leitor([])
         cpf = novo_leitor.dados[1]
 
         if cpf in self.leitores:
@@ -66,7 +65,7 @@ class Biblioteca:
 
     def Excluir_Leitor(self, cpf):
         if cpf in self.leitores:
-            nome = self.leitores[cpf].dados[0]  # Correção aqui
+            nome = self.leitores[cpf].dados[0]
             self.leitores.pop(cpf)
             print(f"O leitor {nome} foi excluído com sucesso.")
             self.Salvar_Dados()
@@ -119,7 +118,6 @@ class Biblioteca:
             else:
                 fila.adicionar_leitor(leitor)
                 print(f"O leitor {leitor.dados[0]} foi adicionado à lista de espera para '{titulo}'.")
-
 
     def Devolver_Livro(self, livro, leitor):
         if livro in self.livros:
